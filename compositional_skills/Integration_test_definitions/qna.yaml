@@ -1,0 +1,41 @@
+---
+created_by: apetruni
+seed_examples:
+  - answer: |
+      Integration testing focuses on interactions between components or
+      systems.  Objectives include:
+      Reducing risk
+      verifying correct functioning of the interfaces
+      Building confidence in the quality of the interfaces
+      Finding defects in the in the interfaces or the components or systems
+      Preventing defects from escaping to higher levels
+    question: What is integration testing?
+  - answer: |
+      The characteristics of integration testing:
+      Should focus on the integration itself and not the functionality of the modules
+      Usually done by developers, while system integration is usually done by testers
+    question: What are the characteristics of integration testing?
+  - answer: |
+      The Test Basis comes from:
+      software and system design
+      Sequence diagrams
+      Interface and communication protocol specifications
+      Use cases
+      Workflows
+      Component or system architecture
+      External interface definitions
+    question: Where does the test basis comes from?
+  - answer: |
+      Typical test objects include: Subsystems, Databases, Infrastructure,
+      Interfaces, APIs and Microservices. 
+    question: What does typical test objects include?
+  - answer: |
+      Examples of typical defects include:
+      incorrect data, missing data or incorrect data encoding
+      Incorrect sequencing or timing of interface calls
+      Interface mismatches
+      Failures in communication between components
+      Unhandled or improperly handled communication failures between components
+      Incorrect assumptions about the meaning, units, or boundaries of the data being passed between components
+    question: what does typical defects include in integration testing?
+task_description: explaining what integration tests are.
