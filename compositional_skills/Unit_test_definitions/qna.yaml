@@ -1,0 +1,41 @@
+---
+created_by: apetruni
+seed_examples:
+  - answer: |
+      Component or unit testing focuses on components that are separately
+      testable.  Objectives include:
+
+      Reducing risk
+
+      verifying correct functioning of components in isolation
+
+      Building confidence in the component’s quality
+
+      Finding defects in the component
+
+      Preventing defects from escaping to higher levels
+    question: What is component/unit testing?
+  - answer: |
+      The characteristics of component testing:
+
+
+      Done in isolation from the rest of system and may require mock objects, stubs, drivers, etc
+
+
+      Usually done by developers or at least someone with access to code
+    question: What are the characteristics of unit testing?
+  - answer: |
+      The Test basis comes from:
+      The detailed design, Code, data model and component specs.
+    question: Where does the test basis comes from?
+  - answer: |
+      Typical test objects include: Components, Code, data structures, Classes
+      and database modules.
+    question: What does typical test objects include?
+  - answer: |
+      Examples of typical defects include:
+      incorrect functionality
+      data flow issues
+      incorrect code or logic
+    question: What does typical defects include in unit testing?
+task_description: explaining what unit tests are.
