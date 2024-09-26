@@ -1,0 +1,54 @@
+---
+created_by: apetruni
+seed_examples:
+  - question: How would you write an acceptance test to reduce logging about flat names?
+    answer: |
+      Test Case ID: RHEL-188616
+      Test case name: reduce logging about flat names
+      Description: sssd keeps logging the following message: calc_flat_name (0x0080): Flat name requested but domain has no flat name set, falling back to domain name
+      Test steps:
+        1. Lookup local users (root) and posix users from backend ldap
+      Expected Result: Verify sssd_nss.log is not flooded with messages "flat name requested but domain has no flat name set"
+  - question: Can you generate an acceptance test to support more than one CRL PEM file name with parameters certificate_verification?
+    answer: |
+      Test Case ID: IDM-294374
+      Test case name: SSSD support for more than one CRL PEM file name with parameters certificate_verification
+      Description: requirement IDM-SSSD-REQ: Support Multiple CRL files for certificate_verification
+      Test steps:
+        1. config sssd with expired crl and current crl
+        2. check authentication of the user
+      Expected Result:
+        1. sssd resets cleanly with specific options
+        2. successfully authenticate the user after adding both crl files
+  - question: Can you generate an acceptance test to check when implicit files domain gets activated when no sssd.conf present and sssd is started?
+    answer: |
+      Test Case ID: RHEL-177225
+      Test case name: sanity: Implicit files domain gets activated when no sssd.conf present and sssd is started
+      Description: sanity: Implicit files domain gets activated when no sssd.conf present and sssd is started
+      Pre conditions:
+        1. Install sssd
+        2. Do not configure anything in sssd.conf, if sssd.conf exists remove the configuration file
+      Test steps:
+        1. systemctl start sssd
+      Expected Result: sssd service should fail to start when no configuration file exists.
+  - question: Can you generate an acceptance test to check the shortcut keys on each page of Anaconda?
+    answer: |
+      Test Case ID: RHEL-241227
+      Test case name: [anaconda][GUI] Shortcut keys
+      Description: Anaconda
+      Test steps:
+        1. Verify that all the shortcut keys function correctly on each page of Anaconda.
+        2. Check whether it is possible to focus 'Connect to Red Hat' (for RHEL 8.x - Refer https://bugzilla.redhat.com/show_bug.cgi?id=1748851)
+      Expected Result: Shortcut keys function correctly on each page of Anaconda.
+  - question: Can you generate an acceptance test to check if it's possible to register to CDN during kickstart installation using liveimage payload?
+    answer: |
+      Test Case ID: RHEL-292873
+      Test case name: RTT-TC: CDN / liveimg payload / text
+      Description: It is possible to register to CDN during kickstart installation using liveimage payload
+      Test steps:
+        1. Start text kickstart installation of rhel
+        2. Boot into the system and run subscription-manager identity
+      Expected Result:
+        1. Installation finishes without issue. No traceback during registration.
+        2. Installed system is registered to CDN
+task_description: provide specific examples of different acceptance tests.
