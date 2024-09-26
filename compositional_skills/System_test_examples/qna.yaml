@@ -1,0 +1,67 @@
+---
+created_by: apetruni
+seed_examples:
+  - question: Can you generate a system test to check su authentication of a user with LDAP, IPA, AD, and Samba with FIPS Fido key?
+    answer: |
+      Test Case ID: IDM-302381
+      Test case name: IDM-SSSD-TC: Check su authentication of user with LDAP, IPA, AD and Samba with FIPS Fido key	
+      Description: Check su authentication of user with LDAP, IPA, AD and Samba with FIPS Fido key
+      Pre-conditions: 
+        1. Add a user in LDAP, IPA, AD and Samba with passkey_mapping.
+        2. Setup SSSD client with FIDO and umockdev, start SSSD service.
+      Test steps:
+        1. Check su authentication of the user.
+      Expected Result:
+        1. User su authenticates successfully.
+  - question: Can you generate a system test to attach mdev hostdev?
+    answer: |
+      Test Case ID: RHEL-287776
+      Test case name: virt-manager: attach mdev hostdev	
+      Description: virt-manager now supports specific mdev devices as hostdev.
+      Pre-conditions:
+        1. A node device of type mdev is running. It is listed via virsh nodedev-list with name, e.g. $mdev_nodedev_name.
+        2. A bootable qcow2 disk image is available, e.g., "guest.qcow2"
+      Test steps:
+        1. Import a guest image with virt-manager following the steps in the wizard.
+           In step 4/4 select "Customize configuration before install" and continue.	
+        2. Select "Add Hardware".
+        3. Select "MDEV Host Device".	
+        4. Add the device and finish the steps for import.
+      Expected Result:  
+        1. The machine details are displayed in a new view.
+        2. A new view opens.
+        3. The node device $mdev_nodedev_name is listed.
+        4. The machine is imported correctly.
+  - question: Can you generate a system test to check the Japanese input in Server with GUI environment?
+    answer: |
+      Test Case ID: RHEL-241222
+      Test case name: [Japanese] Check input in server with GUI environment	
+      Description: This test case is for checking the Japanese input in Server with GUI environment. This is a customer scenario - https://bugzilla.redhat.com/show_bug.cgi?id=1836064
+      Test steps:
+        1. Install RHEL (server with GUI) in Japanese.
+        2. After installation, select Kana Kanji as IM in gnome-initial-setup and try to input using it in applications like gedit, etc.
+      Expected Result:
+        1. Installation should be successful.
+        2. User should be able to select Kana Kanji IM and input using it.
+  - question: Can you generate a system test to display the boot menu with more than one entry?
+    answer: |
+      Test Case ID: RHEL-188842
+      Test case name: [s390x] display boot menu with more than one entry	
+      Description: Boot menu is displayed. There are entries for a) default, b) each available boot entry.
+      Test steps:
+        1. Add //os/bootmenu <bootmenu enable='yes'/>
+        2. Start vm
+      Expected Result:
+        1. The console shows the boot menu, and there are at least three entries that can be selected, with 0 being the default entry.
+  - question: Can you generate a system test to install a guest with unknown OS only?
+    answer: |
+      Test Case ID: RHEL-149023
+      Test case name: [virt-install] install a guest with unknown OS only	
+      Description: Bug 1599777 - virt-manager & virt-install: use "q35" machine by default
+                   Bug 1581413 - virt-manager & virt-install shouldn't assume the default machine-type is "pc"
+      Test steps:
+        1. Run virt-install command and only set --os-variant to 'generic'.
+           # virt-install --name 1 --memory 2048 --disk none -l http://download.eng.pek2.redhat.com/pub/rhel/released/RHEL-7/7.6/Server/x86_64/os/ --os-variant generic
+      Expected Result:
+        1. Verify sound model is 'ich6', network model is 'e1000', and machine type is 'i440fx'.
+task_description: provide specific examples of different system tests.
