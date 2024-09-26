@@ -1,0 +1,56 @@
+---
+version: 2
+task_description: Teach the model about MTA product documentation
+created_by: apetruni
+domain: product_documentation
+seed_examples:
+  - question: What is Migration Toolkit for Applications (MTA)?
+    answer: >
+      Migration Toolkit for Applications (MTA) is a set of tools that you can
+      use to accelerate large-scale application modernization efforts across
+      hybrid cloud environments on Red Hat OpenShift. MTA looks for common
+      resources and known trouble spots when migrating applications.
+
+      It provides a high-level view of the technologies used by the application.
+      MTA also generates a detailed report that evaluates a migration or
+      modernization path.
+
+      By using this report, you can estimate the effort required for large-scale
+      projects and reduce the work involved.
+  - question: What are the MTA rules?
+    answer: >
+      The Migration Toolkit for Applications (MTA) contains rule-based
+      migration tools (analyzers) that you can use to analyze the application
+      user interfaces (APIs), technologies, and architectures used by the
+      applications you plan to migrate.
+  - question: What is the rule pattern the MTA analyzer rules use?
+    answer: >
+      MTA analyzer rules use the following rule pattern: when(condition)
+      message(message) tag(tags)
+  - question: What tools can you use for assistance in the various stages of
+      migration and modernization efforts?
+    answer: >
+      You can use the following Migration Toolkit for Applications (MTA) tools
+      for assistance in the various stages of your migration and modernization
+      efforts:
+      1. User interface
+      2. Migration Toolkit for Applications Operator
+      3. CLI
+      4. IDE add-ons for the following applications:
+         Eclipse, Visual Studio Code, Visual Studio Codespaces, Eclipse Che,
+         IntelliJ IDEA
+      5. Maven plugin
+  - question: What are the different tools in MTA?
+    answer: >
+      The different tools in MTA are: MTA Operator, MTA user interface, MTA
+      CLI, and MTA IDE add-ons.
+  - question: How do you use the MTA operator?
+    answer: >
+      By using the Migration Toolkit for Applications Operator, you can
+      install the user interface on OpenShift Container Platform versions
+      4.13-4.15.
+document:
+  repo: https://github.com/Aliciapet/MTA_documentation_knowledge
+  commit: 9c394e50440557151ff3bb97acde3a8e23478b99
+  patterns:
+    - MTA_documentation.md
