@@ -1,0 +1,66 @@
+---
+created_by: apetruni
+seed_examples:
+  - question: Can you generate an integration test to ensure that downward Metrics feature gate is not enabled by default?
+    answer: |
+      Test Case ID: CNV-10937
+      Test case name: Downward Metrics feature gate is not enabled by default
+      Description: https://issues.redhat.com/browse/CNV-38687 
+      Pre conditions:
+        1. Install CNV
+        2. Ensure feature gate is not explicitly enabled
+      Test steps:  
+        1. Create VM with downward metrics
+      Expected Result:
+        1. Creation of VM or access to any downward metrics endpoint fails. No end points exist.
+  - question: Can you generate an integration test to test rhsm log after the registration in sca mode?
+    answer: |
+      Test Case ID: RHSS-291339
+      Test case name: RHSM_Integration: test_rhsm_log_after_registration_in_sca_mode
+      Description: Custom fields test_rhsm_log_after_registration_in_sca_mode
+      Test steps:
+        1. Set the log level to DEBUG in rhsm.conf
+        2. Register in SCA mode against Satellite
+        3. Check rhsm.log.
+      Expected Result:
+        1. Set the log level successfully
+        2. Registration is successful
+        3. No error like 'Installed product 479 not present in response from server' in rhsm.log
+  - question: Can you generate an integration test to test list installed output after registration to sca mode?
+    answer: |
+      Test Case ID: RHSS-289591
+      Test case name: RHSM_Integration: test_list_installed_output_after_registration_sca_mode
+      Description: Custom fields test_list_installed_output_after_registration_sca_mode
+      Test steps:
+        1. Register guest against Satellite server with SCA mode
+        2. Run list installed command
+      Expected Result:
+        1. guest successfully registers with the satellite server
+        2. It's successful to show the output, and "Status", "Status Details", "Starts" and "Ends" dates are no longer displayed in the subscription-manager list --installed
+  - question: Can you generate an integration test to test subscription manager syspurpose role set invalid?
+    answer: |
+      Test Case ID: RHSS-279730
+      Test case name: RHSM_Integration: test_subscription_manager_syspurpose_role_set_invalid
+      Description: Custom fields test_subscription_manager_syspurpose_role_set_invalid
+      Test steps:
+        1. Register guest against Satellite server
+        2. Check the content of role syspurpose values by hammer or curl from the satellite side before set
+        3. Set invalid role by subscription-manager syspurpose role --set
+        4. Check the content of syspurpose values by hammer or curl from the satellite side
+      Expected Result:
+        1. guest successfully registers with the satellite server
+        2. It's successful to check role syspurpose values from the satellite side before set
+        3. It's successful to set syspurpose values and check message "Warning: Provided value 'foo' is not included in the list of valid values"
+        4. It's successful to check role syspurpose values from the satellite side after set
+  - question: Can you generate an integration test to test sca list repos after registration?
+    answer: |
+      Test Case ID: RHSS-188692
+      Test case name: RHSM_Integration: sca_list_repos_after_registration
+      Description: Custom fields sca_list_repos_after_registration
+      Test steps:
+        1. Register system against satellite in sca mode
+        2. Check repos enable option
+      Expected Result:
+        1. guest successfully registers with the satellite server
+        2. It's successful to check repo enable option after registration in sca mode
+task_description: provide specific examples of different integration tests.
