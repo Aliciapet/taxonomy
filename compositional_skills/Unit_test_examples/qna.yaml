@@ -1,0 +1,84 @@
+---
+created_by: apetruni
+seed_examples:
+  - question: Can you generate a unit test to hot remove the nvme disk?
+    answer: |
+      Test Case ID: VIRT-301770
+      Test case name: [virtual storage]Hot remove a nvme disk from guest	
+      Description: Hot remove the nvme disk.
+      Test steps: 
+        1. Install RHEL guest on ESXi host.
+        2. Add one nvme disk in the guest when power off or power on.
+        3. Boot up guest and hot remove the nvme disk.
+        4. Check the dmesg log or message log.
+      Expected Result:
+        test step #3: The nvme disk could be removed successfully.
+        test step #4: There is no Call Trace log or error fail log about nvme.
+      
+  - question: Can you generate a unit test to hotplug CPU with guest topology?
+    answer: |
+      Test Case ID: VIRT-300479
+      Test case name: Hotplug CPU with guest topology	
+      Description: When a topology is defined, the hotplug can happen into a specific place in the topology.
+                   At this point, libvirt has no way to determine where to plug it into, but as the topology should respect a hotplug, here we cover that hotplug works if there is a topology.
+      Test steps:
+        1. Start the VM.
+        2. In the VM, confirm it's running with 3 CPUs: lscpu --extended.
+        3. Hotplug the VCPU: virsh setvcpus avocado-vt-vm1 4.
+        4. In the VM, confirm it's running with 4 CPUs: lscpu --extended.
+      Expected Result:
+        test step #2: Three CPUs are listed.
+        test step #4: Four CPUs are listed.
+      
+  - question: Can you generate a unit test to migrate to host without topology support?
+    answer: |
+      Test Case ID: VIRT-300459
+      Test case name: Migrate to host without topology support	
+      Description: Migrate to host without topology support.
+      Pre-conditions: 
+        Set up a migration environment. It doesn't matter which migration method is chosen as long as it's managed and live. The test will be described with qemu+ssh and shared storage.
+        Ref. https://docs.google.com/document/d/1LZoV1l3k6DQqTJUtCEfIhJeSC2v23I-lX8Ma2TKJ-9k/edit 
+        Make sure to have two hosts with the following properties:
+        Host 1: Facility 11 is installed.
+        Host 2: Facility 11 is not installed.
+        The availability of facility 11 can be checked as usual from /proc/cpuinfo.
+        In a nested setup, host 1 should be started with cpu <feature policy='require' name='ctop'/> and host 2 with <feature policy='disable' name='ctop'/>.
+      Test steps:
+        1. On the source host 1, define and start a VM with cpu <feature policy="require" name="ctop"/>.
+        2. Try to migrate the VM to host 1, e.g.
+           host1#virsh migrate --live rhel8 qemu+ssh://192.168.122.213/system
+           where 192.168.122.213 is the IP of host 2 and it's been added to the /etc/hosts file if necessary.
+      Expected Result:
+        test step #2: The migration aborts. The error message allows us to identify the problem.
+                      The VM keeps running on the source.
+      
+  - question: Can you generate a unit test for staging to new production migration?
+    answer: |
+      Test Case ID: IDM-301837
+      Test case name: IDM-IPA-TC: ipa-ipa-migration: Staging to new production	
+      Description: Staging to new production migration.
+      Test steps:
+        1. ipa-migrate prod-mode -e hostname.
+      Expected Result:
+        1. All valid IPA entries will be migrated.
+           All IDs (uid, gid, SID, etc.) will be re-generated.
+           All certificates from the previous CA will be removed.
+           Users will have to migrate their passwords to generate Kerberos and other keys.
+      
+  - question: Can you generate a unit test to test cluster creation after creating LVM on raid on a random master node?
+    answer: |
+      Test Case ID: OCP-74452
+      Test case name: test_sno_with_extra_logicalvolume	
+      Description: Test cluster creation after creating LVM on RAID on a random master node.
+      Test steps:
+        1. Create a new cluster (SNO).
+        2. Create RAID on the master node.
+        3. Create LVM on the created RAID.
+        4. Start cluster installation.
+      Expected Result:
+        1. Cluster added.
+        2. RAID created.
+        3. LVM created.
+        4. Cluster installed successfully.
+      
+task_description: Provide specific examples of different unit tests.
