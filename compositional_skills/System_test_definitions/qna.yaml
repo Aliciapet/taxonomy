@@ -1,0 +1,34 @@
+created_by: apetruni
+seed_examples:
+- answer: |
+      System testing focuses on the behaviours of a whole system or product.  Objectives include:
+      Reducing risk
+      verifying that the functional and non-functional behaviours of the system are as designed
+      Validating that the system is complete and working as expected
+      Building confidence in the system as a whole
+      Finding defects
+      Preventing defects from escaping to higher levels
+  question: What is system testing?
+- answer: |
+      The characteristics of system testing:
+      Should focus on the overall, end-to-end behaviour of the system as a whole.
+      Often carried out by independent testers who rely heavily on specifications.
+  question: What are the characteristics of system testing?
+- answer: |
+      The Test Basis comes from: software and system requirements, Risk analysis reports, Use cases
+      Epics and user stories, Models of system behaviour, State diagrams and system and user manuals
+  question: Where does the test basis comes from?
+- answer: |
+      Typical test objects include: applications, Hardware/software systems, Operating systems
+      System Under Test (SUT) and system configuration and config data
+  question: What does typical test objects include?
+- answer: |
+      Typical failures and defects in system testing:
+      Incorrect calculations
+      Incorrect or unexpected system functional or non-functional behaviour
+      Incorrect control and/or data flows within the system
+      Failure to properly and completely carry out end-to-end functional tasks
+      Failure of the system to work properly in the system environment
+      Failure of the system to work as described in system and user manuals
+  question: What are typical failures and defects in system testing?
+task_description: explaining what are system tests are.
